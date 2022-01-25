@@ -1,35 +1,26 @@
 
 const form = document.getElementById("formdiv");
 const input = document.getElementById("todoInput");
+
 let inputError = document.getElementById("inputError");
 let todosdiv = document.getElementById("todosdiv");
+
 let todos = [];
 
 
-fetch('todoJson.json')
-  .then(res => res.json())
-  .then(data => {
-    todos = data;
-    console.log(todos)
-    console.log(todos[1]);  
-})
-.catch(err => console.log(err.message))
+const fetchTodos =  async () => {
+  const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+  const data = await response.json();
+  todos = data;
+  console.log(todos)
+  printTodos();
+}
 
-
-// Kanske ska använda den här?
-  // const fetchTodos = async () => {
-  //   const res = await fetch('https://jsonplaceholder.typicode.com/todos')
-  //   const data = await res.json()
-  //   todos = data;
-  
-  //   listTodos();
-  // }
-
+fetchTodos();
 
 // Validation ifall det är tomt eller inte
-
-
 //#region InputValidationAndError
+
 function isInputEmpty(){
   if(input.value === '' || input.value == null)
   {return true;}
@@ -52,35 +43,69 @@ function createTodoElement(todo){
   card.classList.add("todo");
 
   let paragraph = document.createElement("p");
-  paragraph.innerHTML = todo;
+  paragraph.innerHTML = todo.title;
 
   let delBtn = document.createElement("button");
   delBtn.innerHTML = "X";
   delBtn.classList.add("deleteBtn");
 
+  delBtn.addEventListener('click', () => removeTodo(todo.id, card))
+
   card.appendChild(paragraph);
   card.appendChild(delBtn);
-
 
   return card;
 }
 
-todosdiv.appendChild(createTodoElement("hej"));
+function printTodos(){
+  todosdiv.innerHTML = "";
+  todos.forEach(todo =>
+    todosdiv.appendChild(createTodoElement(todo))
+    
+  );
+}
 
+const postTodo = (title) => {
+  fetch("https://jsonplaceholder.typicode.com/todos",{
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8'
+    },
+    body: JSON.stringify({
+      title
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    todos.unshift(data);
+    printTodos();
+  })
+}
 
-// Event när knappen trycks in
-form.addEventListener("submit", e =>
-{
-  // Kollar ifall det är tomt och isåfall kallar kallar på printError() printError ändrar sedan texten 
+function removeTodo(id, input) {
+  todos = todos.filter(todo => todo.id !== id)
   
+  printTodos();
+  fetch(`https://jsonplaceholder.typicode.com/todos/${id}`,
+  { method: "DELETE" })
+  .catch(error => console.error(error));
+ 
+}
+
+
+// Kallas när submit knappen trycks ner
+form.addEventListener("submit", e =>{
+  // Kollar ifall det är tomt och isåfall kallar kallar på printError(), printError ändrar sedan texten 
+  e.preventDefault();
   if(isInputEmpty())
   {
     printError();
     e.preventDefault();
-
   }
   else{
     clearErrors();
+    postTodo(input.value);
+    input.value = "";
   }
   e.preventDefault();
   console.log("reee");

@@ -93,7 +93,7 @@ input{
 .todo{
     background-color: var(--mainwhite);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     color: #312d2d;
     
     padding-right: 40px;
@@ -102,6 +102,10 @@ input{
     border-radius: 5px;
     box-shadow: 0 6px 15px rgba(33, 70, 156, 0.938);
     font-size: 25px;
+    width: 700px;
+}
+.todo p{
+   max-width: 550px;
 }
 .deleteBtn{
     width: 40px;
