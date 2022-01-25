@@ -1,0 +1,119 @@
+:root{
+
+    --mainblue: #3167e6;
+    --mainwhite: #ffffff;
+}
+
+body{
+    background-color:  var(--mainblue);
+    font-family: 'Secular One', sans-serif;
+
+}
+
+#formdiv{
+
+    border-radius: 5px;
+    
+    /* Justify Content */
+    justify-content: center;
+    display: flex;
+    
+    margin-top: 250px;
+    }
+h3{
+    font-family: 'Secular One', sans-serif;
+    justify-content: center;
+    display: flex;
+    font-size: 35px;
+    margin: 0px;
+    color: #312d2d;
+}
+form{
+    background-color: var(--mainwhite);
+    color: #312d2d;
+    padding: 50px;
+    border-radius: 5px;
+        
+    font-family: 'Secular One', sans-serif;
+    font-size: 20px;
+    
+    /*Justify Content :)) */
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    box-shadow: 0 6px 15px rgba(33, 70, 156, 0.938)
+}
+input{
+    outline: none;
+    padding-top: 5px;
+    border-radius: 5px;
+    height: 40px;
+    width: 225px;
+
+    border:1;
+    border-style: solid;
+    
+    border-color: rgba(15, 15, 15, 0.486);
+    /* border-color: rgba(214, 13, 13, 0.774); */
+    /* border-color: rgba(19, 197, 43, 0.801); */
+    padding-left: 10px;
+    
+    font-family: 'Secular One', sans-serif;
+    font-size: 15px;
+}
+
+#submitBtn{
+ 
+  
+    border: 0;
+    background-color: rgba(66, 120, 255, 0.274);
+    font-size: 25px;
+    height: 45px;
+    font-family: 'Secular One', sans-serif;
+
+    margin-left: 7px;
+    
+}
+#submitBtn:hover{
+    background-color: rgba(66, 120, 255, 0.226);
+    cursor: pointer;
+}
+
+
+#todosdiv{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 160px;
+    align-items: center;
+    
+}
+.todo{
+    background-color: var(--mainwhite);
+    display: flex;
+    justify-content: center;
+    color: #312d2d;
+    
+    padding-right: 40px;
+    padding-left: 40px;
+    gap: 100px;
+    border-radius: 5px;
+    box-shadow: 0 6px 15px rgba(33, 70, 156, 0.938);
+    font-size: 25px;
+}
+.deleteBtn{
+    width: 40px;
+    height: 40px;
+    background-color: rgba(214, 13, 13, 0.774);
+    border: 0;
+    border-radius: 5px;
+    margin-top: 22px;
+
+    font-size: 20px;
+    color: var(--mainwhite);
+}
+
+.deleteBtn:hover{
+    background-color: rgba(214, 13, 13, 0.644);
+}
