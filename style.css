@@ -87,6 +87,7 @@ input{
     flex-direction: column;
     margin-top: 160px;
     align-items: center;
+    gap: 35px;
     
 }
 .todo{
@@ -116,4 +117,11 @@ input{
 
 .deleteBtn:hover{
     background-color: rgba(214, 13, 13, 0.644);
+}
+
+#inputError{
+    color: rgba(214, 13, 13, 0.774);
+}
+.isInvalid{
+    border-color: rgba(214, 13, 13, 0.774);
 }
