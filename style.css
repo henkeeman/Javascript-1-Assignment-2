@@ -44,6 +44,8 @@ form{
     gap: 25px;
     box-shadow: 0 6px 15px rgba(33, 70, 156, 0.938)
 }
+
+
 input{
     outline: none;
     padding-top: 5px;
@@ -62,7 +64,6 @@ input{
     font-family: 'Secular One', sans-serif;
     font-size: 15px;
 }
-
 #submitBtn{
  
   
@@ -102,7 +103,7 @@ input{
     border-radius: 5px;
     box-shadow: 0 6px 15px rgba(33, 70, 156, 0.938);
     font-size: 25px;
-    width: 700px;
+    width: 800px;
 }
 .todo p{
    max-width: 550px;
@@ -121,6 +122,43 @@ input{
 
 .deleteBtn:hover{
     background-color: rgba(214, 13, 13, 0.644);
+    cursor: pointer;
+}
+
+.statusBtn{
+    width: 40px;
+    height: 40px;
+    
+    border: 0;
+    border-radius: 5px;
+    margin-top: 22px;
+
+    font-size: 20px;
+    color: var(--mainwhite);
+}
+
+.statusBtn:hover{
+    cursor: pointer;
+}
+
+.completedStatusBtn
+{
+    
+    background-color: rgba(19, 197, 43, 0.801);
+}
+.completedStatusBtn:hover
+{
+    background-color: rgba(19, 197, 43, 0.589);
+}
+
+
+.unfinishedStatusBtn
+{
+    background-color: rgba(66, 120, 255, 0.274)
+}
+.unfinishedStatusBtn:hover
+{
+    background-color: rgba(66, 120, 255, 0.226);
 }
 
 #inputError{
@@ -128,4 +166,17 @@ input{
 }
 .isInvalid{
     border-color: rgba(214, 13, 13, 0.774);
+}
+.hiddenBtn{
+    visibility: hidden;
+}
+
+.btnDiv{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.completedPara{
+    color: rgba(19, 197, 43, 0.801);
 }
